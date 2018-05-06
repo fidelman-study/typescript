@@ -8,6 +8,9 @@ npm i -g typescript
 ### Compile
 tsc [file]
 
+#### All exclude config oprions
+tsc
+
 #### Complie to different file
 tsc --out [tofile] [file]
 
@@ -16,3 +19,8 @@ tsc --watch --out [tofile] [file]
 
 ### Help
 tsc --help
+
+### Config
+
+#### Create
+tsc --init
