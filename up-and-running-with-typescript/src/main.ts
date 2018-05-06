@@ -1,5 +1,3 @@
-import './two';
-
 class App {
  constructor() {
    console.log('🤡');
