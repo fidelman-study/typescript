@@ -5,6 +5,10 @@
 ### Install
 npm i -g typescript 
 
+#### Packages
+use typings
+from TS2.0 use npm i @types/[package]
+
 ### Compile
 tsc [file]
 
