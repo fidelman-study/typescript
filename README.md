@@ -16,6 +16,7 @@ tsc --out [tofile] [file]
 
 ### Watch
 tsc --watch --out [tofile] [file]
+tsc -w
 
 ### Help
 tsc --help
