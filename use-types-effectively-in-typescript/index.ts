@@ -1,6 +1,19 @@
-const x: string = 'hello';
+const thing: string | number | string[] | boolean = 3;
 
-const fn = (a: string, b:string): string => a + b;
+function returnSomeThing(someThing: string | number | string[] | boolean):string | number | string[] | boolean {
+  return someThing;
+}
 
-const target: HTMLElement = document.getElementById('target');
-target.onclick = (event: MouseEvent): number => event.button;
+returnSomeThing(thing);
+
+/* aliase */
+
+type stuffType = string | number | string[] | boolean | { name: string };
+
+const stuff = 3;
+
+function returnSomeStuff(someStuff: stuffType): stuffType {
+  return someStuff;
+}
+
+console.log(returnSomeStuff(stuff));
