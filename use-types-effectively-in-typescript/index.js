@@ -1,26 +1,22 @@
 (function () {
-    /**
-     * Interface VS Type alias
-     * 1. Type Alias union cannot be used for `implements`
-     * 2. Type Alias union cannot be used for `extends`
-     * 3. Declaration merging doesn't work with type alias
-     */
-    var superHero = {
-        secretIdentity: '1',
-        alias: '1',
-        health: 1
-    };
-    var superVillain = {
-        secretIdentity: '1',
-        alias: '1',
-        health: 1,
-        name: 'hi'
-    };
-    var spawn = {
-        name: 'Spawn',
-        alias: 'Spown',
-        health: 23,
-        jump: 235,
-        secretIdentity: 'hello'
-    };
+    var User = /** @class */ (function () {
+        function User(_a) {
+            var name = _a.name, surname = _a.surname, phone = _a.phone;
+            this.name = name;
+            this.surname = surname;
+            this.phone = phone;
+        }
+        User.getName = function (name, surname) {
+            return name + " " + surname;
+        };
+        User.prototype.greeting = function () {
+            return "Hey " + User.getName(this.name, this.surname);
+        };
+        return User;
+    }());
+    var andrei = new User({
+        name: 'Andrei',
+        surname: 'Fidelman'
+    });
+    console.log('​andrei.greeting()', andrei.greeting());
 })();
