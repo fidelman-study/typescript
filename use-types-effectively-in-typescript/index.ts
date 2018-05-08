@@ -1,29 +1,16 @@
 (function() {
-  type Animal = {
-    type: string;
+  function pushSomethingToArray<T>(something: T, collection: T[]): void {
+    collection.push(something);
   }
 
-  type Human = {
-    name: string;
-  }
+  const user = { name: 'Andrei' };
+  const dog = 'Corgi';
 
-  const animal: Animal = {
-    type: 'dog'
-  };
+  const users = [{ name: 'Karina' }];
+  const dogs = ['Pug'];
 
-  const human: Human = {
-    name: 'Petr'
-  };
+  interface User { name: string; };
 
-  function showTypeOrName(stuff: Animal | Human): string {
-    let result: string = '';
-
-    if ((<Human>stuff).name) {            // old syntax
-      result = (<Human>stuff).name;
-    } else if ((stuff as Animal).type) {  // new syntax is more preferable bcz of JSX
-      result = (stuff as Animal).type;
-    }
-
-    return result;
-  }
+  pushSomethingToArray<User>(user, users);
+  pushSomethingToArray<string>(dog, dogs);
 })();
