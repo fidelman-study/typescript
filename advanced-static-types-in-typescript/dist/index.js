@@ -1,18 +1,13 @@
 "use strict";
 function trimAndLower(text) {
+    // text: string | undefined | null
     if (typeof text === 'string') {
+        // text: string
         return text.trim().toLowerCase();
     }
+    // text: undefined | null
     return text;
 }
-console.log(trimAndLower(null));
-console.log(trimAndLower(undefined));
-console.log(trimAndLower(' Hello '));
-/* ======================= */
-var container = document.getElementById('container');
-if (container) {
-    container.addEventListener('click', function (e) { return console.log(e); });
-}
-/* ======================= */
-var wrapper = document.getElementById('wrapper'); // ! at the end means not null
-wrapper.classList.add('active');
+///////////////////////////
+var foo;
+console.log(foo);
