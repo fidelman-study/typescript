@@ -1,25 +1,38 @@
-const numbers = [1, 2, [3, 4], 5, 6 , [7, 8, 9]];
-
-function flatten<T>(array: (T | T[])[]): T[] {
-  const flattened: T[] = [];
-  array.forEach((item: T | T[]) => {
-    if (Array.isArray(item)) {
-      flattened.push(...item);
-    } else {
-      flattened.push(item);
-    }
-  });
-
-  return flattened;
+interface User {
+  readonly id: number;
+  name: string;
 }
 
-function isFlat<T>(array: (T | T[])[]): array is T[] {
-  return !array.some(Array.isArray);
+const user: User = {
+  id: 1,
+  name: 'Andrei'
+};
+
+user.name += ' Fidelman';
+
+// ===============================
+
+class Person {
+  readonly id: number;
+  name: string;
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
 }
 
-console.log(flatten(numbers));
+const person = new Person(2, 'Karina');
+person.name += ' Fidelman';
 
-if (isFlat(numbers)) {
-  // numbers: number[]
-  numbers;
-}
+// =================================
+
+const weekdays: ReadonlyArray<string> = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday'
+];
