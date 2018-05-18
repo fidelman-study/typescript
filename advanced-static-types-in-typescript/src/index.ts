@@ -1,38 +1,21 @@
-interface User {
-  readonly id: number;
-  name: string;
-}
+type Primitive =
+  | boolean
+  | string
+  | number
+  | symbol
+  | null
+  | undefined;
 
-const user: User = {
-  id: 1,
-  name: 'Andrei'
-};
+// =================
 
-user.name += ' Fidelman';
+let obj: object;
 
-// ===============================
+obj = {};
+obj = [];
+obj = Math.random;
 
-class Person {
-  readonly id: number;
-  name: string;
+// =================
 
-  constructor(id: number, name: string) {
-    this.id = id;
-    this.name = name;
-  }
-}
-
-const person = new Person(2, 'Karina');
-person.name += ' Fidelman';
-
-// =================================
-
-const weekdays: ReadonlyArray<string> = [
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday'
-];
+let object: Object;
+let object1: { [key: string]: any } = {};
+object1.name = 'Andrey';
