@@ -1,21 +1,27 @@
-type Primitive =
-  | boolean
-  | string
-  | number
-  | symbol
-  | null
-  | undefined;
+// void returns undefined
+// never returns nothing
 
-// =================
+enum ShirtSize {
+  XS,
+  S,
+  M,
+  L,
+  XL
+}
 
-let obj: object;
+function assertNever(value: never): never {
+  throw Error(`Error with value: ${value}`);
+}
 
-obj = {};
-obj = [];
-obj = Math.random;
+function prettyPaint(size: ShirtSize) {
+  switch (size) {
+    case ShirtSize.S: return 'Small';
+    case ShirtSize.M: return 'Medium';
+    case ShirtSize.L: return 'Large';
+    case ShirtSize.XL: return 'Extra Large';
+    default: return assertNever(size); // error, above forget about XS
+  }
+}
 
-// =================
-
-let object: Object;
-let object1: { [key: string]: any } = {};
-object1.name = 'Andrey';
+console.log(prettyPaint(0)); // Small
+console.log(prettyPaint(ShirtSize.M)); // Medium
