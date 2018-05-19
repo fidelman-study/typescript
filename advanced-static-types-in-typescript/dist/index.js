@@ -1,11 +1,25 @@
 "use strict";
-var Protocols;
-(function (Protocols) {
-    Protocols[Protocols["HTTP"] = 0] = "HTTP";
-    Protocols[Protocols["HTTPS"] = 1] = "HTTPS";
-    Protocols[Protocols["FTP"] = 2] = "FTP";
-})(Protocols || (Protocols = {}));
-var protocol;
-protocol = Protocols.HTTP;
-protocol = Protocols.HTTPS;
-protocol = Protocols.FRP;
+function tryParseInt(text) {
+    if (/^-?\d+$/.test(text)) {
+        return {
+            success: true,
+            value: parseInt(text, 10)
+        };
+    }
+    return {
+        success: false,
+        error: "Invalid number format"
+    };
+}
+function stringifyPaymentMethod(method) {
+    switch (method.kind) {
+        case 'cash':
+            return 'Cash';
+        case 'paypal':
+            return "PayPal (" + method.email + ")";
+        case 'creditcard':
+            return "Credit Card (*" + method.cardNumber.slice(-4) + ")";
+        default:
+            return 'Unknown method';
+    }
+}
