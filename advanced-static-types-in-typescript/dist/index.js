@@ -1,8 +1,13 @@
 "use strict";
-function reverse(stringOrArray) {
-    return typeof stringOrArray === 'string'
-        ? stringOrArray.split('').reverse().join('')
-        : stringOrArray.slice().reverse();
-}
-var reversedString = reverse('Hello');
-var reversedArray = reverse([1, 2, 3, 4, 5]);
+// if add const before enum the insertion will be replaced by a value
+// in config add preserveConstEnum and the enum will be visible but not replaced
+var MediaTypes;
+(function (MediaTypes) {
+    MediaTypes["JSON"] = "application/json";
+})(MediaTypes || (MediaTypes = {}));
+fetch('https://example/api', {
+    headers: {
+        Accept: MediaTypes.JSON
+    }
+}).then(function (response) {
+});

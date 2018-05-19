@@ -1,10 +1,13 @@
-function reverse(string: string): string;
-function reverse<T>(array: T[]): T[];
-function reverse(stringOrArray: string | any[]) {
-  return typeof stringOrArray === 'string'
-    ? stringOrArray.split('').reverse().join('')
-    : stringOrArray.slice().reverse();
+// if add const before enum the insertion will be replaced by a value
+// in config add preserveConstEnum and the enum will be visible but not replaced
+enum MediaTypes {
+  JSON = 'application/json'
 }
 
-const reversedString = reverse('Hello');
-const reversedArray = reverse([1, 2, 3, 4, 5]);
+fetch('https://example/api', {
+  headers: {
+    Accept: MediaTypes.JSON
+  }
+}).then((response) => {
+
+});
