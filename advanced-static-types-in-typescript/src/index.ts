@@ -1,13 +1,13 @@
-// if add const before enum the insertion will be replaced by a value
-// in config add preserveConstEnum and the enum will be visible but not replaced
-enum MediaTypes {
-  JSON = 'application/json'
+enum Protocols {
+  HTTP,
+  HTTPS,
+  FTP
 }
 
-fetch('https://example/api', {
-  headers: {
-    Accept: MediaTypes.JSON
-  }
-}).then((response) => {
+type HyperTextProtocol = Protocols.HTTP | Protocols.HTTPS;
 
-});
+let protocol: HyperTextProtocol;
+
+protocol = Protocols.HTTP;
+protocol = Protocols.HTTPS;
+protocol = Protocols.FRP;
