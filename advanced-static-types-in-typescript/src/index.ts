@@ -1,27 +1,10 @@
-// void returns undefined
-// never returns nothing
-
-enum ShirtSize {
-  XS,
-  S,
-  M,
-  L,
-  XL
+function reverse(string: string): string;
+function reverse<T>(array: T[]): T[];
+function reverse(stringOrArray: string | any[]) {
+  return typeof stringOrArray === 'string'
+    ? stringOrArray.split('').reverse().join('')
+    : stringOrArray.slice().reverse();
 }
 
-function assertNever(value: never): never {
-  throw Error(`Error with value: ${value}`);
-}
-
-function prettyPaint(size: ShirtSize) {
-  switch (size) {
-    case ShirtSize.S: return 'Small';
-    case ShirtSize.M: return 'Medium';
-    case ShirtSize.L: return 'Large';
-    case ShirtSize.XL: return 'Extra Large';
-    default: return assertNever(size); // error, above forget about XS
-  }
-}
-
-console.log(prettyPaint(0)); // Small
-console.log(prettyPaint(ShirtSize.M)); // Medium
+const reversedString = reverse('Hello');
+const reversedArray = reverse([1, 2, 3, 4, 5]);
